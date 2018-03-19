@@ -58,27 +58,25 @@ fuzzlib template engine. productive, lightweight, flexible
 </item>
 ```
 ```javascript
-**template variables**
-{%username%}
-{%orderid%} 
-{%sum%} 
-{%date%} 
+template variables
+    {%username%}
+    {%orderid%} 
+    {%sum%} 
+    {%date%} 
 
-**foor loop**
-{%for:cars%} - start loop
-{%=cars.id%}
-{%=cars.model%}
-{%=cars.hp%}
-{%=cars.color%}
-{%=cars.price%}
-**{%endfor%}** - end loop
+foor loop
+    {%for:cars%}        - start loop
+        {%=cars.id%}
+        {%=cars.model%}
+        {%=cars.hp%}
+        {%=cars.color%}
+        {%=cars.price%}
+    {%endfor%}          - end loop
 
-**methods** 
 custom methods
-
-{%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
-{%HelloWorld()%}
+    {%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
+    {%HelloWorld()%}
     
-{%sum%} - global variable
-{%=cars.id%} - loop variable
+    {%sum%}         - global variable
+    {%=cars.id%}    - loop variable
 ```
