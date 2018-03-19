@@ -60,44 +60,45 @@ fuzzlib template engine. productive, lightweight, flexible
 ## data dictionary
 ```javascript
 new Dictionary<string, object>
+{
+    {"username", "Britney Spears"},
+    {"orderid", "123456"},
+    {"sum", "120000$"},
+    {"date", "15.03.2018"},
+    {"local", "ru"},
+    {
+        "cars", new List<Dictionary<string, object>>
+        {
+            new Dictionary<string, object>
             {
-                {"username", "Britney Spears"},
-                {"orderid", "123456"},
-                {"sum", "120000$"},
-                {"date", "15.03.2018"},
-                {"local", "ru"},
-                {
-                    "cars", new List<Dictionary<string, object>>
-                    {
-                        new Dictionary<string, object>
-                        {
-                            {"cars.id", "1"},
-                            {"cars.model", "Audi"},
-                            {"cars.hp", "170"},
-                            {"cars.color", "black"},
-                            {"cars.price", "65000$"}
-                        },
-                        new Dictionary<string, object>
-                        {
-                            {"cars.id", "2"},
-                            {"cars.model", "BMW"},
-                            {"cars.hp", "130"},
-                            {"cars.color", "blue"},
-                            {"cars.price", "55000$"}
-                        }
-                    }
-                }
-            };
+                {"cars.id", "1"},
+                {"cars.model", "Audi"},
+                {"cars.hp", "170"},
+                {"cars.color", "black"},
+                {"cars.price", "65000$"}
+            },
+            new Dictionary<string, object>
+            {
+                {"cars.id", "2"},
+                {"cars.model", "BMW"},
+                {"cars.hp", "130"},
+                {"cars.color", "blue"},
+                {"cars.price", "55000$"}
+            }
+        }
+    }
+};
 ```
+## variables
 ```javascript
-template variables
+global variables
     {%username%}
     {%orderid%} 
     {%sum%} 
     {%date%} 
 
 
-foor loop
+for loop variables
     {%for:cars%}        - start loop
         {%=cars.id%}
         {%=cars.model%}
@@ -110,7 +111,4 @@ foor loop
 custom methods
     {%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
     {%HelloWorld()%}
-    
-    {%sum%}         - global variable
-    {%=cars.id%}    - loop variable
 ```
