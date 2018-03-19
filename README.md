@@ -112,3 +112,14 @@ custom methods
     {%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
     {%HelloWorld()%}
 ```
+
+## contracts
+```javascript
+IDataConverter - data converter contract 
+
+To use custom functions in the template
+Implementation ITemplateInvokerMethod
+Use [InvokerMethod("HelloWorld")]. "HelloWorld" - function name for template.
+
+IInvokeMethodsMapper - custom methods mapper contract
+```
