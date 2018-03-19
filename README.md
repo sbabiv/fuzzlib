@@ -66,11 +66,11 @@ fuzzlib template engine. productive, lightweight, flexible
 
 **foor loop**
 {%for:cars%} - start loop
-	{%=cars.id%}
-	{%=cars.model%}
-    {%=cars.hp%}
-    {%=cars.color%}
-	{%=cars.price%}
+{%=cars.id%}
+{%=cars.model%}
+{%=cars.hp%}
+{%=cars.color%}
+{%=cars.price%}
 **{%endfor%}** - end loop
 
 **methods** 
