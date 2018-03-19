@@ -57,7 +57,7 @@ fuzzlib template engine. productive, lightweight, flexible
     </cars>
 </item>
 ```
-
+```javascript
 **template variables**
 {%username%}
 {%orderid%} 
@@ -81,3 +81,4 @@ custom methods
     
 {%sum%} - global variable
 {%=cars.id%} - loop variable
+```
