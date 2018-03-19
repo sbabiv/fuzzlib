@@ -59,12 +59,15 @@ fuzzlib template engine. productive, lightweight, flexible
 ```
 ```javascript
 template variables
+
     {%username%}
     {%orderid%} 
     {%sum%} 
     {%date%} 
 
+
 foor loop
+
     {%for:cars%}        - start loop
         {%=cars.id%}
         {%=cars.model%}
@@ -73,7 +76,9 @@ foor loop
         {%=cars.price%}
     {%endfor%}          - end loop
 
+
 custom methods
+
     {%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
     {%HelloWorld()%}
     
