@@ -57,3 +57,27 @@ fuzzlib template engine. productive, lightweight, flexible
     </cars>
 </item>
 ```
+
+**template variables**
+{%username%}
+{%orderid%} 
+{%sum%} 
+{%date%} 
+
+**foor loop**
+{%for:cars%} - start loop
+	{%=cars.id%}
+	{%=cars.model%}
+    {%=cars.hp%}
+    {%=cars.color%}
+	{%=cars.price%}
+**{%endfor%}** - end loop
+
+**methods** 
+custom methods
+
+{%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
+{%HelloWorld()%}
+    
+{%sum%} - global variable
+{%=cars.id%} - loop variable
