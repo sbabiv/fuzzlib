@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Xml.Linq;
@@ -25,7 +26,8 @@ namespace Example
 
             //convert message to Dictionary
             var converter = new LinqDataConverter();
-            var data = converter.ToData(xml);
+            //var data = converter.ToData(xml);
+            var data = GetData();
 
             //get custom methods
             var methodsMapper = new InvokeMethodsMapper();
@@ -43,6 +45,39 @@ namespace Example
 
             Console.WriteLine(output);
             Console.ReadLine();
+        }
+
+        private static Dictionary<string, object> GetData()
+        {
+            return new Dictionary<string, object>
+            {
+                {"username", "Britney Spears"},
+                {"orderid", "123456"},
+                {"sum", "120000$"},
+                {"date", "15.03.2018"},
+                {"local", "ru"},
+                {
+                    "cars", new List<Dictionary<string, object>>
+                    {
+                        new Dictionary<string, object>
+                        {
+                            {"cars.id", "1"},
+                            {"cars.model", "Audi"},
+                            {"cars.hp", "170"},
+                            {"cars.color", "black"},
+                            {"cars.price", "65000$"}
+                        },
+                        new Dictionary<string, object>
+                        {
+                            {"cars.id", "2"},
+                            {"cars.model", "BMW"},
+                            {"cars.hp", "130"},
+                            {"cars.color", "blue"},
+                            {"cars.price", "55000$"}
+                        }
+                    }
+                }
+            };
         }
     }
 }
