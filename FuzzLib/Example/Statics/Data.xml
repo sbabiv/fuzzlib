@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<item>
+  <username>Britney Spears</username>
+  <orderid>123456</orderid>
+  <sum>120000$</sum>
+  <date>15.03.2018</date>
+  <local>ru</local>
+  <cars>
+    <param>
+      <id>1</id>
+      <model>Audi</model>
+      <hp>170</hp>
+      <color>black</color>
+      <price>65000$</price>
+    </param>
+    <param>
+      <id>2</id>
+      <model>BMW</model>
+      <hp>130</hp>
+      <color>blue</color>
+      <price>55000$</price>
+    </param>
+  </cars>
+</item>
