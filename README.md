@@ -57,15 +57,48 @@ fuzzlib template engine. productive, lightweight, flexible
     </cars>
 </item>
 ```
+## data dictionary
 ```javascript
-template variables
+new Dictionary<string, object>
+{
+    {"username", "Britney Spears"},
+    {"orderid", "123456"},
+    {"sum", "120000$"},
+    {"date", "15.03.2018"},
+    {"local", "ru"},
+    {
+        "cars", new List<Dictionary<string, object>>
+        {
+            new Dictionary<string, object>
+            {
+                {"cars.id", "1"},
+                {"cars.model", "Audi"},
+                {"cars.hp", "170"},
+                {"cars.color", "black"},
+                {"cars.price", "65000$"}
+            },
+            new Dictionary<string, object>
+            {
+                {"cars.id", "2"},
+                {"cars.model", "BMW"},
+                {"cars.hp", "130"},
+                {"cars.color", "blue"},
+                {"cars.price", "55000$"}
+            }
+        }
+    }
+};
+```
+## variables
+```javascript
+global variables
     {%username%}
     {%orderid%} 
     {%sum%} 
     {%date%} 
 
 
-foor loop
+for loop variables
     {%for:cars%}        - start loop
         {%=cars.id%}
         {%=cars.model%}
@@ -78,7 +111,85 @@ foor loop
 custom methods
     {%RemoveLink({%local%},{%=cars.id%},{%orderid%})%}
     {%HelloWorld()%}
-    
-    {%sum%}         - global variable
-    {%=cars.id%}    - loop variable
+```
+
+## contracts
+```javascript
+IDataConverter - data converter contract 
+
+To use custom functions in the template
+Implementation ITemplateInvokerMethod
+Use [InvokerMethod("HelloWorld")]. "HelloWorld" - function name for template.
+
+IInvokeMethodsMapper - custom methods mapper contract
+```
+
+## example
+https://github.com/sbabiv/fuzzlib/tree/master/FuzzLib/Example
+```C#
+static void Main(string[] args)
+{
+    var tmplFilePath = Path.Combine(Environment.CurrentDirectory, @"Statics\Template.txt");
+    var dataFilePath = Path.Combine(Environment.CurrentDirectory, @"Statics\Data.xml");
+
+    //read template 
+    var content = File.ReadAllText(tmplFilePath);
+    //read message
+    var xml = XDocument.Load(dataFilePath).Element("item");
+
+    //convert message to Dictionary
+    var converter = new LinqDataConverter();
+    //var data = converter.ToData(xml);
+    var data = GetData();
+
+    //get custom methods
+    var methodsMapper = new InvokeMethodsMapper();
+    var parser = new TemplateParser(new FunctionsContainer());
+    //set custom methods for parser
+    parser.SetMethods(methodsMapper.GetMethods().ToArray());
+
+    //create and compile template 
+    var factory = new BinaryTemplatesFactory(parser);
+    var template = factory.Compile(content, true);
+    template.SetHandlers(() => methodsMapper.GetInvokers());
+
+    //render content
+    var output = template.Render(data);
+
+    Console.WriteLine(output);
+    Console.ReadLine();
+}
+
+private static Dictionary<string, object> GetData()
+{
+    return new Dictionary<string, object>
+    {
+        {"username", "Britney Spears"},
+        {"orderid", "123456"},
+        {"sum", "120000$"},
+        {"date", "15.03.2018"},
+        {"local", "ru"},
+        {
+            "cars", new List<Dictionary<string, object>>
+            {
+                new Dictionary<string, object>
+                {
+                    {"cars.id", "1"},
+                    {"cars.model", "Audi"},
+                    {"cars.hp", "170"},
+                    {"cars.color", "black"},
+                    {"cars.price", "65000$"}
+                },
+                new Dictionary<string, object>
+                {
+                    {"cars.id", "2"},
+                    {"cars.model", "BMW"},
+                    {"cars.hp", "130"},
+                    {"cars.color", "blue"},
+                    {"cars.price", "55000$"}
+                }
+            }
+        }
+    };
+}
 ```
