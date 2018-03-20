@@ -1,5 +1,5 @@
 # fuzzlib
-fuzzlib template engine. productive, lightweight, flexible
+fuzzlib C# template engine. productive, lightweight, flexible
 ## template
 ```javascript
 <table border="0" cellpadding="0" cellspacing="0" width="610" align="center">
