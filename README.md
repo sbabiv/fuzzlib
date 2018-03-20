@@ -1,5 +1,5 @@
 # fuzzlib
-fuzzlib template engine. productive, lightweight, flexible
+fuzzlib C# template engine. productive, lightweight, flexible
 ## template
 ```javascript
 <table border="0" cellpadding="0" cellspacing="0" width="610" align="center">
@@ -193,3 +193,65 @@ private static Dictionary<string, object> GetData()
     };
 }
 ```
+
+## Benchmark
+https://github.com/sbabiv/fuzzlib/tree/master/FuzzLib/Benchmark     
+Render Parallel.For     
+Intel Core i7-2600K CPU 3.4GHz 8 cores      
+
+```javascript
+count: 10
+Fuzzlib Elapsed ticks: 80252, millisecond: 24
+RazorEngine Elapsed ticks: 1361884, millisecond: 408
+===================
+count: 100
+Fuzzlib Elapsed ticks: 1147, millisecond: 0
+RazorEngine Elapsed ticks: 88250, millisecond: 26
+===================
+count: 1000
+Fuzzlib Elapsed ticks: 9373, millisecond: 2
+RazorEngine Elapsed ticks: 590320, millisecond: 177
+===================
+count: 10000
+Fuzzlib Elapsed ticks: 77192, millisecond: 23
+RazorEngine Elapsed ticks: 6056490, millisecond: 1817
+===================
+count: 100000
+Fuzzlib Elapsed ticks: 719481, millisecond: 215
+RazorEngine Elapsed ticks: 58974754, millisecond: 17701
+===================
+count: 1000000
+Fuzzlib Elapsed ticks: 7517282, millisecond: 2256
+RazorEngine Elapsed ticks: 652056494, millisecond: 195719
+===================
+```
+**template**
+```xml
+Fuzzlib tmpl
+
+<table border=0 cellpadding=0 cellspacing=0 width=610 align=center>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> User name: {%username%} </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order id: {%orderid%} </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order price: {%sum%} </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order date: {%date%} </font><br/>
+	
+	{%for:cars%}
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%cars.id%} </font><br/>
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%cars.price%} </font><br/>
+	{%endfor%}
+</table>
+
+RazorEngine tmpl
+
+<table border=0 cellpadding=0 cellspacing=0 width=610 align=center>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> User name: @Model.username </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order id: @Model.orderid </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order price: @Model.sum </font><br/>
+	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order date: @Model.date </font><br/>
+
+	@foreach (var item in Model.cars) {
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: @item.id </font><br/>
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: @item.price </font><br/>
+	}
+</table>
+
