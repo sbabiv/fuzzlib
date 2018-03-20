@@ -201,28 +201,28 @@ Intel Core i7-2600K CPU 3.4GHz 8 cores
 
 ```javascript
 count: 10
-Fuzzlib Elapsed ticks: 80252, millisecond: 24
-RazorEngine Elapsed ticks: 1361884, millisecond: 408
+Fuzz Elapsed ticks: 86494, millisecond: 25
+Razor Elapsed ticks: 1205566, millisecond: 361
 ===================
 count: 100
-Fuzzlib Elapsed ticks: 1147, millisecond: 0
-RazorEngine Elapsed ticks: 88250, millisecond: 26
+Fuzz Elapsed ticks: 1204, millisecond: 0
+Razor Elapsed ticks: 59589, millisecond: 17
 ===================
 count: 1000
-Fuzzlib Elapsed ticks: 9373, millisecond: 2
-RazorEngine Elapsed ticks: 590320, millisecond: 177
+Fuzz Elapsed ticks: 9564, millisecond: 2
+Razor Elapsed ticks: 363334, millisecond: 109
 ===================
 count: 10000
-Fuzzlib Elapsed ticks: 77192, millisecond: 23
-RazorEngine Elapsed ticks: 6056490, millisecond: 1817
+Fuzz Elapsed ticks: 85384, millisecond: 25
+Razor Elapsed ticks: 3584350, millisecond: 1075
 ===================
 count: 100000
-Fuzzlib Elapsed ticks: 719481, millisecond: 215
-RazorEngine Elapsed ticks: 58974754, millisecond: 17701
+Fuzz Elapsed ticks: 777639, millisecond: 233
+Razor Elapsed ticks: 34496568, millisecond: 10354
 ===================
 count: 1000000
-Fuzzlib Elapsed ticks: 7517282, millisecond: 2256
-RazorEngine Elapsed ticks: 652056494, millisecond: 195719
+Fuzz Elapsed ticks: 8057448, millisecond: 2418
+Razor Elapsed ticks: 444747767, millisecond: 133493
 ===================
 ```
 **template**
@@ -236,8 +236,8 @@ Fuzzlib tmpl
 	<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order date: {%date%} </font><br/>
 	
 	{%for:cars%}
-		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%cars.id%} </font><br/>
-		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%cars.price%} </font><br/>
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%=cars.id%} </font><br/>
+		<font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%=cars.price%} </font><br/>
 	{%endfor%}
 </table>
 
