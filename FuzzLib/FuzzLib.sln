@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FuzzLib", "FuzzLib\FuzzLib.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Example", "Example\Example.csproj", "{D5D871C9-4EBC-43A8-AEF1-E7B56E62EBAE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{415905D6-829D-4394-A716-860CE6CBEDA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D5D871C9-4EBC-43A8-AEF1-E7B56E62EBAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D871C9-4EBC-43A8-AEF1-E7B56E62EBAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5D871C9-4EBC-43A8-AEF1-E7B56E62EBAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{415905D6-829D-4394-A716-860CE6CBEDA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{415905D6-829D-4394-A716-860CE6CBEDA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{415905D6-829D-4394-A716-860CE6CBEDA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{415905D6-829D-4394-A716-860CE6CBEDA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
