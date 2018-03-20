@@ -225,7 +225,18 @@ Fuzz Elapsed ticks: 7517282, millisecond: 2256
 Razor Elapsed ticks: 652056494, millisecond: 195719
 ===================
 ```
+**template**
+```javascript
+<table border=0 cellpadding=0 cellspacing=0 width=610 align=center>
+	                                    <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> User name: {%username%} </font><br/>
+                                        <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order id: {%orderid%} </font><br/>
+                                        <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order price: {%sum%} </font><br/>
+	                                    <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order date: {%date%} </font><br/>
 
-
+                                        {%for:cars%}
+                                            <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%cars.id%} </font><br/>
+	                                        <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%cars.price%} </font><br/>
+                                        {%endfor%}
+                                    </table>
 
 
