@@ -201,28 +201,28 @@ Intel Core i7-2600K CPU 3.4GHz 8 cores
 
 ```javascript
 count: 10
-Fuzz Elapsed ticks: 80252, millisecond: 24
-Razor Elapsed ticks: 1361884, millisecond: 408
+Fuzzlib Elapsed ticks: 80252, millisecond: 24
+RazorEngine Elapsed ticks: 1361884, millisecond: 408
 ===================
 count: 100
-Fuzz Elapsed ticks: 1147, millisecond: 0
-Razor Elapsed ticks: 88250, millisecond: 26
+Fuzzlib Elapsed ticks: 1147, millisecond: 0
+RazorEngine Elapsed ticks: 88250, millisecond: 26
 ===================
 count: 1000
-Fuzz Elapsed ticks: 9373, millisecond: 2
-Razor Elapsed ticks: 590320, millisecond: 177
+Fuzzlib Elapsed ticks: 9373, millisecond: 2
+RazorEngine Elapsed ticks: 590320, millisecond: 177
 ===================
 count: 10000
-Fuzz Elapsed ticks: 77192, millisecond: 23
-Razor Elapsed ticks: 6056490, millisecond: 1817
+Fuzzlib Elapsed ticks: 77192, millisecond: 23
+RazorEngine Elapsed ticks: 6056490, millisecond: 1817
 ===================
 count: 100000
-Fuzz Elapsed ticks: 719481, millisecond: 215
-Razor Elapsed ticks: 58974754, millisecond: 17701
+Fuzzlib Elapsed ticks: 719481, millisecond: 215
+RazorEngine Elapsed ticks: 58974754, millisecond: 17701
 ===================
 count: 1000000
-Fuzz Elapsed ticks: 7517282, millisecond: 2256
-Razor Elapsed ticks: 652056494, millisecond: 195719
+Fuzzlib Elapsed ticks: 7517282, millisecond: 2256
+RazorEngine Elapsed ticks: 652056494, millisecond: 195719
 ===================
 ```
 **template**
