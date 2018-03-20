@@ -226,7 +226,7 @@ Razor Elapsed ticks: 652056494, millisecond: 195719
 ===================
 ```
 **template**
-```javascript
+```xml
 Fuzzlib tmpl
 
 <table border=0 cellpadding=0 cellspacing=0 width=610 align=center>
