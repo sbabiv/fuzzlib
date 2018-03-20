@@ -23,7 +23,7 @@ namespace Benchmark
         {
             var razor = new Razor();
             var fuzz = new Fuzz();
-
+            
             int count = 1;
             for (int i = 0; i < 6; i++)
             {
@@ -44,13 +44,13 @@ namespace Benchmark
                             {
                                 new Dictionary<string, object>
                                 {
-                                    { "id", Guid.NewGuid().ToString() },
-                                    { "price", Guid.NewGuid().ToString() },
+                                    { "cars.id", Guid.NewGuid().ToString() },
+                                    { "cars.price", Guid.NewGuid().ToString() },
                                 },
                                 new Dictionary<string, object>
                                 {
-                                    { "id", Guid.NewGuid().ToString() },
-                                    { "price", Guid.NewGuid().ToString() },
+                                    { "cars.id", Guid.NewGuid().ToString() },
+                                    { "cars.price", Guid.NewGuid().ToString() },
                                 }
                             }
                         }
@@ -119,8 +119,8 @@ namespace Benchmark
 	                                    <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> order date: {%date%} </font><br/>
 
                                         {%for:cars%}
-                                            <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%cars.id%} </font><br/>
-	                                        <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%cars.price%} </font><br/>
+                                            <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car id: {%=cars.id%} </font><br/>
+	                                        <font size=5 style=font-size: 20px face=arial, sans-serif color=#834dad> car price: {%=cars.price%} </font><br/>
                                         {%endfor%}
                                     </table>";
 
@@ -141,7 +141,7 @@ namespace Benchmark
 
         public void Render(Dictionary<string, object> model)
         {
-            _template.Render(model);
+            var str = _template.Render(model);
         }
     }
 }
